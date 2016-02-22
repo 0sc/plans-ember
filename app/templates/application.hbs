@@ -1,3 +1,46 @@
-<h2 id="title">Welcome to Ember</h2>
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  {{#link-to 'index' class='item'}}Home{{/link-to}}
+  <a class="item">Plans</a>
+  <a class="item">New Plans</a>
+  <a class="item">Login</a>
+  <a class="item">Signup</a>
+</div>
 
-{{outlet}}
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class='toc item'><i class="sidebar icon"></i></a>
+        {{#link-to 'index' class='item'}}Home{{/link-to}}
+        <a class="item">Plans</a>
+        <a class="item">New Plan</a>
+        <div class="right item">
+          <a class="ui inverted button">Log in</a>
+          <a class="ui inverted button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    {{outlet}}
+
+  </div>
+</div>
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list">
+            <p><a href='http://github.com/andela-ooranagwa/plans'>Vew project on Github</a></p>
+            <p><a href="http://pl-an.herokuapp.com/docs">Project documentation</a></p>
+          </div>
+        </div>
+        <div class="ten wide column">
+          <h4 class="ui inverted header">Our services</h4>
+          <p><a href="http://pl-an.herokuapp.com">Plans Bucketlist API interface</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
