@@ -3,5 +3,40 @@
     PLANS that succeed
   </h1>
   <br />
-  <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+  <div class="ui huge primary button" {{action 'openModal'}}>Get Started <i class="right arrow icon"></i></div>
+  {{#ui-modal name="profile" class="profile"}}
+  <i class="close icon"></i>
+  <div class="header">
+    Register
+  </div>
+  <div class="ui container segment basic">
+    <form class="ui form">
+      <div class="field">
+        <label>Name</label>
+        {{input value=name placeholder='Name'}}
+      </div>
+      <div class="field">
+        <label>Email</label>
+        {{input value=email placeholder='Email'}}
+      </div>
+      <div class="field">
+        <label>password</label>
+        {{input type='password' value=password}}
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          {{input type='checkbox' checked=checked}}
+          <label>I agree to the Terms and Conditions</label>
+        </div>
+      </div>
+      <button class="ui button" type="submit" {{action 'register'}}>Submit</button>
+    </form>
+  </div>
+  <div class="actions">
+    <div class="ui positive right labeled icon button">
+      login
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+{{/ui-modal}}
 </div>
