@@ -9,19 +9,20 @@
   <div class="header">
     Register
   </div>
+
   <div class="ui container segment basic">
     <form class="ui form">
       <div class="field">
         <label>Name</label>
-        {{input value=name placeholder='Name'}}
+        {{input value=model.name placeholder='Name'}}
       </div>
       <div class="field">
         <label>Email</label>
-        {{input value=email placeholder='Email'}}
+        {{input value=model.email placeholder='Email'}}
       </div>
       <div class="field">
         <label>password</label>
-        {{input type='password' value=password}}
+        {{input type='password' value=model.password}}
       </div>
       <div class="field">
         <div class="ui checkbox">
@@ -32,9 +33,10 @@
       <button class="ui button" type="submit" {{action 'register'}}>Submit</button>
     </form>
   </div>
+
   <div class="actions">
-    <div class="ui positive right labeled icon button">
-      login
+    <div class="ui positive right labeled icon button" {{action 'switchAction' preventDefault=true}}>
+      {{alternateText}}
       <i class="checkmark icon"></i>
     </div>
   </div>
