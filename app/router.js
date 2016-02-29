@@ -5,6 +5,9 @@ const Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.map(function() {});
+Router.map(function() {
+  this.route('bucketlists', function() {});
+  this.route('bucketlist');
+});
 
 export default Router;
