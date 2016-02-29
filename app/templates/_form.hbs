@@ -1,0 +1,32 @@
+<i class="close icon"></i>
+<div class="header">
+  {{formHeader}}
+</div>
+
+<div class="ui container segment basic">
+  <form class="ui form">
+    {{#if isRegister}}
+    <div class="field">
+      <label>Name</label>
+      {{input value=model.name placeholder='Name'}}
+    </div>
+    {{/if}}
+    <div class="field">
+      <label>Email</label>
+      {{input value=model.email placeholder='Email'}}
+    </div>
+    <div class="field">
+      <label>password</label>
+      {{input type='password' value=model.password}}
+    </div>
+
+    <button class="ui button" type="submit" {{action formAction}}>submit</button>
+  </form>
+</div>
+
+<div class="actions">
+  <div class="ui positive right labeled icon button switch" {{action 'switchType'}}>
+    {{formSwitchText}}
+    <i class="checkmark icon"></i>
+  </div>
+</div>

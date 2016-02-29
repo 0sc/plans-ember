@@ -18,25 +18,36 @@ var loginFailure = function(result){
 
 export default Ember.Controller.extend({
   checked: true,
-  isLogin: false,
-  alternateText: Ember.computed('isLogin', function(){
-    return this.get('isLogin') ? 'register' : 'login';
-  }),
+  isRegister: true,
+  formHeader: function(){
+    return this.get('isRegister') ? 'Register' : 'Login';
+  }.property('isRegister'),
+
+  formAction: function(){
+    return this.get('isRegister') ? 'register' : 'login';
+  }.property('isRegister'),
+
+  formSwitchText: function(){
+    return this.get('isRegister') ? 'Login' : 'Register';
+  }.property('isRegister'),
+
   actions: {
-    openModal: function() {
-      $('.ui.modal').modal('show');
+    switchType(){
+      this.set('isRegister', !this.get('isRegister'));
     },
-    switchAction: function(){
-      console.log('switcched');
-      this.toggleProperty('isLogin');
+    openModal() {
+      $('.authentication.modal').modal('show');
+      $('.login.modal').modal('attach events', '.authentication.modal .switch');
+      $('.authentication.modal').modal('attach events', '.login.modal .switch');
     },
-    register: function(){
-      // validate forms not empty
-      this.get('model').save().then(login.bind(this), (user)=>{
+    register() {
+      this.get('model').save().then(login.bind(this), ()=>{
         this.set("isProcessing", false);
         this.set("loginFailed", true);
-        console.log(user);
       }.bind(this));
+    },
+    login() {
+      login.bind(this)();
     }
   }
 });
