@@ -1,1 +1,15 @@
-{{outlet}}
+<div class="ui text container">
+  <h1 class="ui inverted header">
+    PLANS that succeed
+  </h1>
+  <br />
+  <div class="ui huge primary button" {{action 'openModal'}}>Get Started <i class="right arrow icon"></i></div>
+  {{#ui-modal name="authentication" class="authentication"}}
+    {{partial '_form'}}
+  {{/ui-modal}}
+
+  {{#ui-modal name="login" class="login"}}
+    {{partial '_form'}}
+  {{/ui-modal}}
+
+</div>
