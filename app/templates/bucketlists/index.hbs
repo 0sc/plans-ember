@@ -1,32 +1,53 @@
-<h2>Here we would have a listing of all the bucketlist available</h2>
-<ul>
-  {{#each model as |list|}}
-    <li>
-      {{list.name}}
-    </li>
-  {{/each}}
-</ul>
-<div class="ui styled fluid accordion">
-  <div class="title">
-    <i class="dropdown icon"></i>
-    What is a dog?
-  </div>
-  <div class="content">
-    <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    What kinds of dogs are there?
-  </div>
-  <div class="content">
-    <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    How do you acquire a dog?
-  </div>
-  <div class="content">
-    <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
-    <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+<div class="masthead segment ui container very padded">
+  <h2 class="ui header">Here we would have a listing of all the bucketlist available</h2>
+  <div class="ui internally grid">
+    <div class="row">
+      <div class="ten wide column">
+        <div class="ui cards">
+          {{#each model as |list|}}
+          <div class="card">
+            <div class="content">
+              <div class="ui block header">
+                <span class="right floated">Date</span>
+                {{list.name}}
+                <div class="meta">
+                  Number of items will be here
+                </div>
+              </div>
+              <div class="description">
+                <div class="ui relaxed divided list">
+                  {{#each model as |list|}}
+                  <div class="item">
+                    <i class="small fire middle aligned icon"></i>
+                    <div class="content">
+                      <a class="header">{{list.name}}</a>
+                      <div class="description">Updated 10 mins ago</div>
+                    </div>
+                  </div>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+            <div class="extra content">
+              <div class="ui two buttons">
+                <div class="ui basic green button"><i class="add circle icon"></i>Add item</div>
+                <div class="ui basic red button"><i class="trash icon"></i>Delete list</div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+      </div>
+      </div>
+      <div class="six wide column">
+        <div class="segment ui container padded">
+          <h3 class="ui top header center aligned dividing">Todo items&emsp;<i class="wait icon"></i></h3>
+          <div class="ui container">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
