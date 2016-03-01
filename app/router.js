@@ -7,7 +7,6 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('bucketlists', function() {});
-  this.route('bucketlist');
 });
 
 export default Router;
