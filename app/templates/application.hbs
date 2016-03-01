@@ -8,12 +8,12 @@
 </div>
 
 <div class="pusher">
-  <div class="ui inverted vertical masthead center aligned segment">
+  <div class="ui inverted vertical center aligned segment">
 
     <div class="ui container">
       <div class="ui large secondary inverted pointing menu">
         <a class='toc item'><i class="sidebar icon"></i></a>
-        {{#link-to 'index' class='item'}}Home{{/link-to}}
+        {{#link-to 'index' class='item'}}<i class="home icon"></i>Home{{/link-to}}
         <a class="item">Plans</a>
         <a class="item">New Plan</a>
         <div class="right item">
@@ -22,12 +22,12 @@
         </div>
       </div>
     </div>
+  </div>
 
     {{outlet}}
 
-  </div>
 </div>
-  <div class="ui inverted vertical footer segment">
+  <div class="ui vertical footer">
     <div class="ui container">
       <div class="ui stackable inverted divided equal height stackable grid">
         <div class="three wide column">

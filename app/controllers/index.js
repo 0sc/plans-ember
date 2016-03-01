@@ -6,11 +6,18 @@ var login = function(){
       email: this.get('model.email'),
       password: this.get('model.password')
     }
-  }).then(loginSuccessful, loginFailure);
+  }).then(loginSuccessful.bind(this), loginFailure);
 };
 
 var loginSuccessful = function(result){
   console.log(result.auth_token);
+  localStorage.setItem('api_key', result.auth_token);
+  Ember.$.ajaxSetup({
+    headers: {
+      'Authorization': 'Token ' + localStorage.getItem('api_key')
+    }
+  });
+  this.transitionToRoute('bucketlists');
 };
 var loginFailure = function(result){
   console.log(result);
