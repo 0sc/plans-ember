@@ -8,7 +8,7 @@
           <div class="card">
             <div class="content">
               <div class="ui block header">
-                <span class="right floated">Date</span>
+                <span class="right floated">{{list.date_created}}</span>
                 {{list.name}}
                 <div class="meta">
                   Number of items will be here
@@ -16,12 +16,12 @@
               </div>
               <div class="description">
                 <div class="ui relaxed divided list">
-                  {{#each model as |list|}}
+                  {{#each list.items as |item|}}
                   <div class="item">
                     <i class="small fire middle aligned icon"></i>
                     <div class="content">
-                      <a class="header">{{list.name}}</a>
-                      <div class="description">Updated 10 mins ago</div>
+                      <a class="header">{{item.name}}</a>
+                      <div class="description">{{item.last_updated}}</div>
                     </div>
                   </div>
                   {{/each}}
