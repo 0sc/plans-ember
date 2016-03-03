@@ -1,0 +1,14 @@
+<div class="item">
+  <i class="small fire middle aligned icon"></i>
+  <div class="content">
+    {{#ui-accordion}}
+      <div class="title">
+        <a class="header">{{item.name}}</a>
+      </div>
+      <div class="content center aligned">
+        {{partial 'bucketlists/_manage'}}
+      </div>
+    {{/ui-accordion}}
+    <div class="description text">updated {{item.last_updated}} ago</div>
+  </div>
+</div>
