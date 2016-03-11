@@ -1,0 +1,24 @@
+<div class="ui fluid card">
+  <div class="content">
+    <div class="ui block header">
+      <span class="right floated">{{list.date_created}}</span>
+      {{model.name}}
+      <div class="meta">
+        {{model.itemCount}} item(s)
+      </div>
+    </div>
+    <div class="description">
+      <div class="ui relaxed divided list">
+        {{#each model.items as |item|}}
+        {{partial 'bucketlists/_card'}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <div class="ui two buttons">
+      <div class="ui basic green button"><i class="add circle icon"></i>Add item</div>
+      <div class="ui basic red button"><i class="trash icon"></i>Delete list</div>
+    </div>
+  </div>
+</div>
