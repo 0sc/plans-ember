@@ -24,10 +24,10 @@
     <div class="ui buttons">
       <button class="ui teal button"><i class="add circle icon"></i>Add items</button>
       <div class="or"></div>
-      <button class="ui basic positive button"><i class="save circle icon" {{action "savePlan"}}></i>Save</button>
+      <button class="ui basic positive button" {{action "savePlan"}}><i class="save circle icon"></i>Save</button>
     </div>
   </form>
   {{else}}
-  <button class="ui circular plus icon button" {{action 'switch'}}><i class="facebook icon"></i>Create New plan</button>
+  <button class="ui circular plus green button" {{action 'switch'}}><i class="add circle icon"></i>Create New plan</button>
   {{/if}}
 </div>
