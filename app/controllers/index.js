@@ -10,13 +10,7 @@ var login = function(){
 };
 
 var loginSuccessful = function(result){
-  console.log(result.auth_token);
-  localStorage.setItem('api_key', result.auth_token);
-  Ember.$.ajaxSetup({
-    headers: {
-      'Authorization': 'Token ' + localStorage.getItem('api_key')
-    }
-  });
+  this.get('session').setApiKey(result.auth_token);
   this.transitionToRoute('bucketlists');
 };
 var loginFailure = function(result){
@@ -26,6 +20,7 @@ var loginFailure = function(result){
 export default Ember.Controller.extend({
   checked: true,
   isRegister: true,
+  session: Ember.inject.service(),
   formHeader: function(){
     return this.get('isRegister') ? 'Register' : 'Login';
   }.property('isRegister'),

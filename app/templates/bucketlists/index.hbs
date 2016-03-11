@@ -1,48 +1,26 @@
-<div class="masthead segment ui container very padded">
-  <h2 class="ui header">Here we would have a listing of all the bucketlist available</h2>
-  <div class="ui internally grid">
-    <div class="row">
-      <div class="ten wide column">
-        <div class="ui cards">
-          {{#each model as |list|}}
-          <div class="card">
-            <div class="content">
-              <div class="ui block header">
-                <span class="right floated">{{list.date_created}}</span>
-                {{list.name}}
-                <div class="meta">
-                  {{list.itemCount}} item(s)
-                </div>
-              </div>
-              <div class="description">
-                <div class="ui relaxed divided list">
-                  {{#each list.items as |item|}}
-                  {{partial 'bucketlists/_card'}}
-                  {{/each}}
-                </div>
-              </div>
-            </div>
-            <div class="extra content">
-              <div class="ui two buttons">
-                <div class="ui basic green button"><i class="add circle icon"></i>Add item</div>
-                <div class="ui basic red button"><i class="trash icon"></i>Delete list</div>
-              </div>
-            </div>
-          </div>
-          {{/each}}
+{{#each model as |list|}}
+<div class="ui fluid card">
+  <div class="content">
+    <div class="ui block header">
+      <span class="right floated">{{list.date_created}}</span>
+      {{#link-to 'bucketlists.show' list}}{{list.name}}{{/link-to}}
+      <div class="meta">
+        {{list.itemCount}} item(s)
       </div>
-      </div>
-      <div class="six wide column">
-        <div class="segment ui container padded">
-          <h3 class="ui top header center aligned dividing">Todo items&emsp;<i class="wait icon"></i></h3>
-          <div class="ui container">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-        {{bucketlists/create-bucketlist}}
+    </div>
+    <div class="description">
+      <div class="ui relaxed divided list">
+        {{#each list.items as |item|}}
+        {{partial 'bucketlists/_card'}}
+        {{/each}}
       </div>
     </div>
   </div>
+  <div class="extra content">
+    <div class="ui two buttons">
+      <div class="ui basic green button"><i class="add circle icon"></i>Add item</div>
+      <div class="ui basic red button"><i class="trash icon"></i>Delete list</div>
+    </div>
+  </div>
 </div>
+{{/each}}

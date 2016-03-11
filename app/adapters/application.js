@@ -1,8 +1,12 @@
 import DS from 'ember-data';
 
 export default DS.RESTAdapter.extend({
+  session: Ember.inject.service(),
+
   host: "http://localhost:3000",
-  headers: {
-    'Authorization': 'Token ' + localStorage.getItem('api_key')
-  }
+  headers: Ember.computed('session', function(){
+    return {
+      'Authorization': 'Token ' + this.get('session').getApiKey()
+    };
+  })
 });
