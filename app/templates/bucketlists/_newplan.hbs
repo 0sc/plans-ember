@@ -1,12 +1,11 @@
 <div class="ui hidden divider"></div>
 <div class="ui hidden divider"></div>
 <div class="ui container ">
-  {{#if isActive}}
   <form class="ui form">
     <h3 class="ui top header center aligned dividing">New Plan</h3>
     <div class="field">
       <label>Name</label>
-      {{input value=plan.name type='text' placeholder='Enter name for the plan'}}
+      {{input value=model.name type='text' placeholder='Enter name for the plan'}}
     </div>
     {{#if addItem}}
     <div class="two fields">
@@ -22,12 +21,9 @@
     </div>
     {{/if}}
     <div class="ui buttons">
-      <button class="ui teal button"><i class="add circle icon"></i>Add items</button>
+      <button class="ui teal button" {{action 'addItem'}}><i class="add circle icon"></i>Add items</button>
       <div class="or"></div>
       <button class="ui basic positive button" {{action "savePlan"}}><i class="save circle icon"></i>Save</button>
     </div>
   </form>
-  {{else}}
-  <button class="ui circular plus green button" {{action 'setActive'}}><i class="add circle icon"></i>Create New plan</button>
-  {{/if}}
 </div>

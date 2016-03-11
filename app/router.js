@@ -10,7 +10,10 @@ Router.map(function(){
     this.route('show', {
       path: ':bucketlist_id'
     });
+    this.route('new');
   });
+
+  this.route('bucketlist', function() {});
 });
 
 export default Router;
