@@ -2,7 +2,7 @@
 <div class="ui vertical inverted sidebar menu">
   {{#link-to 'index' class='item'}}Home{{/link-to}}
   <a class="item">Plans</a>
-  <a class="item">New Plans</a>
+  {{#link-to 'bucketlists.new' class="item"}}New Plans{{/link-to}}
   <a class="item">Login</a>
   <a class="item">Signup</a>
 </div>
@@ -15,7 +15,7 @@
         <a class='toc item'><i class="sidebar icon"></i></a>
         {{#link-to 'index' class='item'}}<i class="home icon"></i>Home{{/link-to}}
         <a class="item">Plans</a>
-        <a class="item">New Plan</a>
+        {{#link-to 'bucketlists.new' class="item"}}New Plans{{/link-to}}
         <div class="right item">
           <a class="ui inverted button">Log in</a>
           <a class="ui inverted button">Sign Up</a>

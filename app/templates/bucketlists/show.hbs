@@ -1,16 +1,15 @@
-{{#each model as |list|}}
 <div class="ui fluid card">
   <div class="content">
     <div class="ui block header">
       <span class="right floated">{{list.date_created}}</span>
-      {{#link-to 'bucketlists.show' list}}{{list.name}}{{/link-to}}
+      {{model.name}}
       <div class="meta">
-        {{list.itemCount}} item(s)
+        {{model.itemCount}} item(s)
       </div>
     </div>
     <div class="description">
       <div class="ui relaxed divided list">
-        {{#each list.items as |item|}}
+        {{#each model.items as |item|}}
         {{partial 'bucketlists/_card'}}
         {{/each}}
       </div>
@@ -23,4 +22,3 @@
     </div>
   </div>
 </div>
-{{/each}}

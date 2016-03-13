@@ -6,7 +6,14 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function(){
-  this.route('bucketlists');
+  this.route('bucketlists', function() {
+    this.route('show', {
+      path: ':bucketlist_id'
+    });
+    this.route('new');
+  });
+
+  this.route('bucketlist', function() {});
 });
 
 export default Router;
