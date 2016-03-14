@@ -5,18 +5,16 @@
     <h3 class="ui top header center aligned dividing">New Plan</h3>
     <div class="field">
       <label>Name</label>
-      {{input value=model.name type='text' placeholder='Enter name for the plan'}}
+      {{input value=model.plan.name type='text' placeholder='Enter name for the plan'}}
     </div>
-    {{#if addItem}}
+    {{#if includeItem}}
     <div class="two fields">
       <div class="field">
-        {{input type='text' placeholder='Enter item name'}}
+        {{input type='text' value=model.item.name placeholder='Enter item name'}}
       </div>
       <div class="field">
-        <div class="ui checkbox">
-          <input type="checkbox" tabindex="0">
-          <label>Done</label>
-        </div>
+        {{ui-checkbox checked=model.item.done}}
+        <label>Done</label>
       </div>
     </div>
     {{/if}}
