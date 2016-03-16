@@ -1,14 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  'addItem': false,
-  'store': Ember.inject.service(),
+  'includeItem': false,
   actions: {
     addItem(){
-      console.log('Can I please add an item?');
+      this.toggleProperty('includeItem');
     },
     savePlan(){
-      this.get('model').save().then(function(model){
+      var toSave = this.get('model.plan');
+      toSave.save().then(function(model){
+        var itemToSave = this.get('model.item')
+        model.get('items').pushObject(itemToSave);
+        itemToSave.save().then(function(){
+          console.log('Successful');
+        }, function(){ console.log('ouch');});
         this.transitionToRoute('bucketlists.show', model);
       }.bind(this), function(){
         console.log('Something went wrong');
