@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  manager: Ember.inject.service(),
   'includeItem': false,
   actions: {
     addItem(){
@@ -9,9 +10,9 @@ export default Ember.Controller.extend({
     savePlan(){
       var toSave = this.get('model.plan');
       toSave.save().then(function(model){
-        var itemToSave = this.get('model.item')
-        model.get('items').pushObject(itemToSave);
-        itemToSave.save().then(function(){
+        model.get('items').pushObject(this.get('model.item'));
+        this.get('manager').setUnSavedController(model.get('id'));
+        this.get('model.item').save().then(function(){
           console.log('Successful');
         }, function(){ console.log('ouch');});
         this.transitionToRoute('bucketlists.show', model);
