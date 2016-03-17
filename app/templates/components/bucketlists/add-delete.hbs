@@ -1,0 +1,18 @@
+{{#if addItemMode}}
+  <div class="ui block">
+    <div class="ui form">
+      <div class="fields">
+        <div class="fourteen wide field">
+          {{input value=objModel.name}}
+        </div>
+        <button class="circular ui green save icon button no-padding" {{action "saveItem"}}><i class="save icon"></i></button>
+        <button class="circular ui cancel teal icon button no-padding" {{action "cancelAddItem"}}><i class="cancel icon"></i></button>
+      </div>
+    </div>
+  </div>
+{{else}}
+  <div class="ui two buttons">
+    <div class="ui basic green button" {{action 'addItem' list.newItem()}}><i class="add circle icon"></i>Add item</div>
+    <div class="ui basic red button" {{action 'delete' list}}><i class="trash icon"></i>Delete list</div>
+  </div>
+{{/if}}

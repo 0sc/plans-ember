@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   editMode: false,
+  newItem(){
+    return this.store.createRecord('item', { bucketlist: this.get('model') });
+  },
   actions: {
     cancelEdit(){
       this.get('model').rollbackAttributes();
