@@ -2,7 +2,7 @@
     <div class="ui horizontal divided list">
       <div class="item">
         <div class="content">
-          <a class="header">{{ui-popup tagName="i" class="checkmark box icon green" content="Mark as completed."}}</a>
+          <a class="header" {{action 'updateItem' item}}>{{ui-popup tagName="i" class=(donecss item.done 'toggle on green' 'toggle off grey' 'icon') content="Change completed status."}}</a>
         </div>
       </div>
       <div class="item">
@@ -18,6 +18,6 @@
     </div>
   </div>
   <div class="content">
-    <i class="large checkmark middle aligned icon"></i>
+    <i class = {{donecss item.done 'green' 'grey' 'large checkmark middle aligned icon'}}></i>
     <a class="title">{{item.name}}</a>
   </div>

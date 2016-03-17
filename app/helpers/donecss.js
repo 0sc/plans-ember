@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export function donecss(params) {
-  var css = params[0] ? 'green' : 'grey';
-  return `large ${css} checkmark middle aligned icon`;
+  var css = params[0] ? params[1] : params[2];
+  return `${css} ${params[3]}`;
 }
 
 export default Ember.Helper.helper(donecss);
