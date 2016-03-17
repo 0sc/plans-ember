@@ -15,11 +15,11 @@ export default Ember.Controller.extend({
         this.get('model.item').save().then(function(){
           console.log('Successful');
         }, function(){ console.log('ouch');});
+        this.toggleProperty('includeItem');
         this.transitionToRoute('bucketlists.show', model);
       }.bind(this), function(){
         console.log('Something went wrong');
       });
-      this.toggleProperty('isActive');
     }
   }
 });
