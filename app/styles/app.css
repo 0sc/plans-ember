@@ -59,6 +59,10 @@
   display: none;
 }
 
+.circular.ui.icon.button.no-padding .icon{
+  margin-right: 0px;
+}
+
 @media only screen and (max-width: 700px) {
   .ui.fixed.menu {
     display: none !important;
