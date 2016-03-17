@@ -6,7 +6,7 @@
         <a class="header">{{item.name}}</a>
       </div>
       <div class="content center aligned">
-        {{partial 'bucketlists/_manage'}}
+        {{bucketlists.manage-item item=item}}
       </div>
     {{/ui-accordion}}
     <div class="description text">updated {{item.last_updated}} ago</div>
