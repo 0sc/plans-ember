@@ -11,7 +11,9 @@
     <div class="description">
       <div class="ui relaxed divided list">
         {{#each list.items as |item|}}
-        {{partial 'bucketlists/_card'}}
+        <div class="item">
+          {{bucketlists.manage-item item=item}}
+        </div>
         {{/each}}
       </div>
     </div>
