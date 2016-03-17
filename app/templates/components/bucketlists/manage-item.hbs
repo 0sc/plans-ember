@@ -11,27 +11,29 @@
     </div>
   </div>
 {{else}}
-  <div class="right floated content">
-    <div class="ui horizontal divided list">
-      <div class="item">
-        <div class="content">
-          <a class="header" {{action 'updateItem' item}}>{{ui-popup tagName="i" class=(donecss item.done 'toggle on green' 'toggle off grey' 'icon') content="Change completed status."}}</a>
+  {{#if showActions}}
+    <div class="right floated content">
+      <div class="ui horizontal divided list">
+        <div class="item">
+          <div class="content">
+            <a class="header" {{action 'updateItem' item}}>{{ui-popup tagName="i" class=(donecss item.done 'toggle on green' 'toggle off grey' 'icon') content="Change completed status."}}</a>
+          </div>
         </div>
-      </div>
-      <div class="item">
-        <div class="content">
-          <a class="header" {{action 'editItem'}}>{{ui-popup tagName="i" class="edit icon violet" content="Edit this item."}}</a>
+        <div class="item">
+          <div class="content">
+            <a class="header" {{action 'editItem'}}>{{ui-popup tagName="i" class="edit icon violet" content="Edit this item."}}</a>
+          </div>
         </div>
-      </div>
-      <div class="item">
-        <div class="content">
-          <a class="header" {{action 'deleteItem' item}}>{{ui-popup tagName="i" class="trash icon red" content="Delete this item."}}</a>
+        <div class="item">
+          <div class="content">
+            <a class="header" {{action 'deleteItem' item}}>{{ui-popup tagName="i" class="trash icon red" content="Delete this item."}}</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  {{/if}}
   <div class="content">
     <i class = {{donecss item.done 'green' 'grey' 'large checkmark middle aligned icon'}}></i>
-    <a class="title">{{item.name}}</a>
+    <a class="title" {{action "toggleShowActions"}}>{{item.name}}</a>
   </div>
 {{/if}}

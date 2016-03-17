@@ -2,8 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   editMode: false,
+  showActions: false,
   manager: Ember.inject.service(),
   actions: {
+    toggleShowActions(){
+      this.toggleProperty('showActions');
+    },
     editItem(){
       this.set('editMode', true);
     },
