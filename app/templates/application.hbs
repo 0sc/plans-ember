@@ -1,4 +1,35 @@
-{{nav-bar}}
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  {{#link-to 'index' class='item'}}Home{{/link-to}}
+  <a class="item">Plans</a>
+  {{#link-to 'bucketlists.new' class="item"}}New Plans{{/link-to}}
+  {{#if isLoggedIn}}
+    <a class="item" {{action 'logoutUser'}}>Logout</a>
+  {{else}}
+    <a class="item">Login</a>
+    <a class="item">Signup</a>
+  {{/if}}
+</div>
+
+  <div class="ui inverted vertical center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class='toc item'><i class="sidebar icon"></i></a>
+        {{#link-to 'index' class='item'}}<i class="home icon"></i>Home{{/link-to}}
+        {{#link-to 'bucketlists.index' class='item'}}Plans{{/link-to}}
+        {{#link-to 'bucketlists.new' class="item"}}New Plans{{/link-to}}
+        <div class="right item">
+          {{#if isLoggedIn}}
+            <a class="ui inverted button" {{action 'logoutUser'}}>Logout</a>
+          {{else}}
+          <a class="ui inverted button">Log in</a>
+          <a class="ui inverted button">Sign Up</a>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
 
   {{outlet}}
 
