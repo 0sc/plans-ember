@@ -10,12 +10,15 @@ export default Ember.Controller.extend({
     savePlan(){
       var toSave = this.get('model.plan');
       toSave.save().then(function(model){
-        model.get('items').pushObject(this.get('model.item'));
-        this.get('manager').setUnSavedController(model.get('id'));
-        this.get('model.item').save().then(function(){
-          console.log('Successful');
-        }, function(){ console.log('ouch');});
+        if(this.get('model.item.name')){
+          model.get('items').pushObject(this.get('model.item'));
+          this.get('manager').setUnSavedController(model.get('id'));
+          this.get('model.item').save().then(function(){
+            console.log('Successful');
+          }, function(){ console.log('ouch');});
+        }
         this.toggleProperty('includeItem');
+        this.get('model.item').rollbackAttributes();
         this.transitionToRoute('bucketlists.show', model);
       }.bind(this), function(){
         console.log('Something went wrong');
