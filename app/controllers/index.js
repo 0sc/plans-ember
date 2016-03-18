@@ -11,6 +11,7 @@ var login = function(){
 
 var loginSuccessful = function(result){
   this.get('session').setApiKey(result.auth_token);
+  // this.get('session')
   this.transitionToRoute('bucketlists');
 };
 var loginFailure = function(result){
