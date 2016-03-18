@@ -5,7 +5,7 @@
         <div class="fourteen wide field">
           {{input value=item.name}}
         </div>
-        <button class="circular ui green save icon button no-padding" {{action "updateItem" item}}><i class="save icon"></i></button>
+        <button class="circular ui green save icon button no-padding" {{action "updateItem" item false}}><i class="save icon"></i></button>
         <button class="circular ui cancel teal icon button no-padding" {{action "cancelEdit" item}}><i class="cancel icon"></i></button>
       </div>
     </div>
@@ -16,7 +16,7 @@
       <div class="ui horizontal divided list">
         <div class="item">
           <div class="content">
-            <a class="header" {{action 'updateItem' item}}>{{ui-popup tagName="i" class=(donecss item.done 'toggle on green' 'toggle off grey' 'icon') content="Change completed status."}}</a>
+            <a class="header" {{action 'updateItem' item true}}>{{ui-popup tagName="i" class=(donecss item.done 'toggle on green' 'toggle off grey' 'icon') content="Change completed status."}}</a>
           </div>
         </div>
         <div class="item">
