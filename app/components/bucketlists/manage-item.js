@@ -11,8 +11,10 @@ export default Ember.Component.extend({
     editItem(){
       this.set('editMode', true);
     },
-    updateItem(item){
-      item.set('done', item.toggleProperty('done'));
+    updateItem(item, completed){
+      if (completed){
+        item.set('done', item.toggleProperty('done'));
+      }
       this.get('manager').setUnSavedController(item.get('bucketlist.id'));
       item.save().then(function(){
         console.log('Updated done successfully.');
