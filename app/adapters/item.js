@@ -5,6 +5,10 @@ export default ApplicationAdapter.extend({
 
   buildURL: function(modelName, id, snapshot, requestType, query){
     var controller_id = this.get('manager').getUnSavedController();
-    return `${this.get('host')}/bucketlists/${controller_id}/items`;
+    var url = `${this.get('host')}/bucketlists/${controller_id}/items/`;
+    if(id){
+      url += id;
+    }
+    return url;
   }
 });

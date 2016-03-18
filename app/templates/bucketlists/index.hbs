@@ -11,16 +11,15 @@
     <div class="description">
       <div class="ui relaxed divided list">
         {{#each list.items as |item|}}
-        {{partial 'bucketlists/_card'}}
+        <div class="item">
+          {{bucketlists.manage-item item=item}}
+        </div>
         {{/each}}
       </div>
     </div>
   </div>
   <div class="extra content">
-    <div class="ui two buttons">
-      <div class="ui basic green button"><i class="add circle icon"></i>Add item</div>
-      <div class="ui basic red button"><i class="trash icon"></i>Delete list</div>
-    </div>
+    {{bucketlists.add-delete list=list}}
   </div>
 </div>
 {{/each}}

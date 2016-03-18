@@ -1,24 +1,37 @@
 <div class="ui fluid card">
   <div class="content">
     <div class="ui block header">
-      <span class="right floated">{{list.date_created}}</span>
-      {{model.name}}
-      <div class="meta">
-        {{model.itemCount}} item(s)
-      </div>
+      {{#if editMode}}
+        <div class="ui form">
+          <div class="fields">
+            <div class="fourteen wide field">
+              {{input value=model.name}}
+            </div>
+            <button class="circular ui green save icon button no-padding" {{action "updateBucketlist"}}><i class="save icon"></i></button>
+            <button class="circular ui cancel teal icon button no-padding" {{action "cancelEdit"}}><i class="cancel icon"></i></button>
+          </div>
+        </div>
+      {{else}}
+        <span class="right floated">{{model.date_created}}</span>
+        {{model.name}}<a {{action "editBucketlist" }}>&emsp;<i class="edit icon"></i></a>
+        <div class="meta">
+          {{model.itemCount}} item(s)
+        </div>
+      {{/if}}
     </div>
     <div class="description">
       <div class="ui relaxed divided list">
         {{#each model.items as |item|}}
-        {{partial 'bucketlists/_card'}}
+          <div class="item">
+            {{bucketlists.manage-item item=item}}
+          </div>
         {{/each}}
       </div>
     </div>
   </div>
   <div class="extra content">
-    <div class="ui two buttons">
-      <div class="ui basic green button"><i class="add circle icon"></i>Add item</div>
-      <div class="ui basic red button"><i class="trash icon"></i>Delete list</div>
+    <div class="extra content">
+      {{bucketlists.add-delete list=model}}
     </div>
   </div>
 </div>
