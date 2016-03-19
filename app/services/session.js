@@ -8,7 +8,7 @@ export default Ember.Service.extend({
   },
   unsetApiKey(){
     this.set('apiKey', null);
-    localStorage.setItem('api_key', null);
+    localStorage.removeItem('api_key');
   },
   getApiKey(){
     return this.get('apiKey') ? this.get('apiKey') : localStorage.getItem('api_key');

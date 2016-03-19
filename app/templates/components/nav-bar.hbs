@@ -4,7 +4,7 @@
   <a class="item">Plans</a>
   {{#link-to 'bucketlists.new' class="item"}}New Plans{{/link-to}}
   {{#if isLoggedIn}}
-    <a class="item" {{action 'logoutUser'}}>Logout</a>
+    <a class="item">Logout</a>
   {{else}}
     <a class="item">Login</a>
     <a class="item">Signup</a>
@@ -21,31 +21,11 @@
         {{#link-to 'bucketlists.new' class="item"}}New Plans{{/link-to}}
         <div class="right item">
           {{#if isLoggedIn}}
-            <a class="ui inverted button" {{action 'logoutUser'}}>Logout</a>
+            <a class="ui inverted button">Logout</a>
           {{else}}
           <a class="ui inverted button">Log in</a>
           <a class="ui inverted button">Sign Up</a>
           {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {{outlet}}
-
-  <div class="ui vertical footer">
-    <div class="ui container">
-      <div class="ui stackable inverted divided equal height stackable grid">
-        <div class="three wide column">
-          <h4 class="ui inverted header">About</h4>
-          <div class="ui inverted link list">
-            <p><a href='http://github.com/andela-ooranagwa/plans'>Vew project on Github</a></p>
-            <p><a href="http://pl-an.herokuapp.com/docs">Project documentation</a></p>
-          </div>
-        </div>
-        <div class="ten wide column">
-          <h4 class="ui inverted header">Our services</h4>
-          <p><a href="http://pl-an.herokuapp.com">Plans Bucketlist API interface</a></p>
         </div>
       </div>
     </div>
