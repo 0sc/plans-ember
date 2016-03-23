@@ -1,23 +1,12 @@
 import Ember from 'ember';
 
-var login = function(){
-  $.post("http://localhost:3000/auth/login", {
-    user:{
-      email: this.get('model.email'),
-      password: this.get('model.password')
-    }
-  }).then(loginSuccessful.bind(this), loginFailure);
-};
-
-var loginSuccessful = function(result){
-  this.get('session').setApiKey(result.auth_token);
-  // this.get('session')
+var loginSuccessful = function(){
   $(".authentication.modal").modal('hide dimmer');
   $(".login.modal").modal('hide dimmer');
   this.transitionToRoute('bucketlists');
 };
-var loginFailure = function(result){
-  console.log(result);
+var loginFailure = function(){
+  console.log("Something went wrong");
 };
 
 export default Ember.Controller.extend({
@@ -46,13 +35,22 @@ export default Ember.Controller.extend({
       $('.authentication.modal').modal('attach events', '.login.modal .switch');
     },
     register() {
-      this.get('model').save().then(login.bind(this), ()=>{
+      this.get('model').save().then(function(){
+        this.actions.login.bind(this)();
+      }.bind(this), ()=>{
         this.set("isProcessing", false);
         this.set("loginFailed", true);
       }.bind(this));
     },
     login() {
-      login.bind(this)();
+      this.get('session').login(this.get('model'), function(err, result){
+        if(err){
+          loginFailure();
+        }
+        else {
+          loginSuccessful.bind(this)();
+        }
+      }.bind(this));
     }
   }
 });
