@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   }),
   actions: {
     logoutUser: function() {
-      this.get('session').unsetApiKey();
+      this.get('session').logout();
       this.transitionToRoute('index');
     }
   }
