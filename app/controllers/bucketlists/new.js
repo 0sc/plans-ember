@@ -17,8 +17,10 @@ export default Ember.Controller.extend({
             console.log('Successful');
           }, function(){ console.log('ouch');});
         }
+        else {
+          this.get('model.item').rollbackAttributes();
+        }
         this.toggleProperty('includeItem');
-        this.get('model.item').rollbackAttributes();
         this.transitionToRoute('bucketlists.show', model);
       }.bind(this), function(){
         console.log('Something went wrong');
