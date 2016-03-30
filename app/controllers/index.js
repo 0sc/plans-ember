@@ -43,7 +43,7 @@ export default Ember.Controller.extend({
       }.bind(this));
     },
     login() {
-      this.get('session').login(this.get('model'), function(err, result){
+      this.get('session').login(this.get('model'), function(err){
         if(err){
           loginFailure();
         }
