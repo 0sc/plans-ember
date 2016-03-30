@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
 
   actions: {
     switchType(){
-      this.set('isRegister', !this.get('isRegister'));
+      this.toggleProperty('isRegister');
     },
     openModal() {
       $('.authentication.modal').modal('show');
@@ -36,7 +36,7 @@ export default Ember.Controller.extend({
     },
     register() {
       this.get('model').save().then(function(){
-        this.actions.login.bind(this)();
+        this.actions.login.call(this);
       }.bind(this), ()=>{
         this.set("isProcessing", false);
         this.set("loginFailed", true);
@@ -48,7 +48,7 @@ export default Ember.Controller.extend({
           loginFailure();
         }
         else {
-          loginSuccessful.bind(this)();
+          loginSuccessful.call(this);
         }
       }.bind(this));
     }
