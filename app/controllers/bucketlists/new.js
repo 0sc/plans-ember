@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   manager: Ember.inject.service(),
   'includeItem': false,
+  rollback(){
+    this.get('model.plan').rollbackAttributes();
+    this.get('model.item').rollbackAttributes();
+  },
   actions: {
     addItem(){
       this.toggleProperty('includeItem');

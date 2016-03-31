@@ -6,5 +6,10 @@ export default Ember.Route.extend({
       plan: this.store.createRecord('bucketlist'),
       item: this.store.createRecord('item', {})
     });
+  },
+  actions: {
+    willTransition(transition){
+      this.controller.rollback();
+    }
   }
 });
