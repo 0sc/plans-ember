@@ -29,6 +29,9 @@ export default Ember.Component.extend({
     },
     delete(bucketlist){
       if (confirm(`Are you sure you want to delete Plan: ${bucketlist.get('name')} with ${bucketlist.get('itemCount')} items.`)){
+        bucketlist.get("items").forEach(function(item){
+          item.set('done', true);
+        });
         bucketlist.destroyRecord();
       }
       else {
