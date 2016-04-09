@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     });
   },
   actions: {
-    willTransition(transition){
+    willTransition(){
       this.controller.rollback();
     }
   }
