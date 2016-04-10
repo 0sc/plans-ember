@@ -4,8 +4,10 @@ export default Ember.Controller.extend({
   manager: Ember.inject.service(),
   'includeItem': false,
   rollback(){
-    this.get('model.plan').rollbackAttributes();
-    this.get('model.item').rollbackAttributes();
+    if(this.get('model.plan.hasDirtyAttributes')){
+      this.get('model.plan').rollbackAttributes();
+      this.get('model.item').rollbackAttributes();
+    }
   },
   actions: {
     addItem(){
