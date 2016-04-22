@@ -16,7 +16,6 @@ export default Ember.Component.extend({
       this.get('manager').setUnSavedController(item.get('bucketlist.id'));
       item.save().then(function(){
         this.toggleProperty('addItemMode');
-        console.log('Yippee');
       }.bind(this), function(data){
         console.log(data.errors);
       });
